@@ -23,6 +23,18 @@ class Switcher(object):
     def get_case(self, key):
         return self.switch.get(key, self.default)
 
+def switcher(keys: list, values: list, case, default= None):
+    """ Python switch case function
+        
+        example:
+            keys = ["a","b","c"]
+            values = [1,2,3]
+            print(switcher(keys, values, "a")) #=> 1
+            print(switcher(keys, values, "q")) #=> None
+            print(switcher(keys, values, "q", 'Not fount')) #=> Not fount
+    """
+    return dict(zip(keys, values)).get(case, default)
+
 def safe_division(n, d):
     """Python safe division for ZeroDivisionError"""
     return n / d if d else 0
