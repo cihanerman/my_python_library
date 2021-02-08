@@ -16,3 +16,7 @@ class Switcher(object):
     
     def get_case(self, key):
         return self.switch.get(key, self.default)
+
+def safe_division(n, d):
+    """Python safe division for ZeroDivisionError"""
+    return n / d if d else 0
