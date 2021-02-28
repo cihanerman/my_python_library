@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 # librays
-import random, string, datetime
+import random
+import string
+import datetime
 
 # class and functions
 
+
 class Switcher(object):
     """Python switch case
-    
+
         example:
             keys = ["a","b","c"]
             values = [1,2,3]
@@ -16,16 +19,18 @@ class Switcher(object):
             switch = Switcher(keys, values, 'Not found')
             print(switch.get_case("q")) #=> Not found
     """
-    def __init__(self, keys, values, default= None):
+
+    def __init__(self, keys, values, default=None):
         self.switch = dict(zip(keys, values))
         self.default = default
-    
+
     def get_case(self, key):
         return self.switch.get(key, self.default)
 
-def switcher(keys: list, values: list, case, default= None):
+
+def switcher(keys: list, values: list, case, default=None):
     """ Python switch case function
-        
+
         example:
             keys = ["a","b","c"]
             values = [1,2,3]
@@ -35,13 +40,15 @@ def switcher(keys: list, values: list, case, default= None):
     """
     return dict(zip(keys, values)).get(case, default)
 
+
 def safe_division(n, d):
     """Python safe division for ZeroDivisionError"""
     return n / d if d else 0
 
+
 def converts_turkish_characters_to_english_characters(word: str) -> str:
     """ The function that converts Turkish characters to English characters
-        
+
         Parameters:
             word: Related word
     """
@@ -50,6 +57,7 @@ def converts_turkish_characters_to_english_characters(word: str) -> str:
         for c, t in zip(u"şçıöüğŞÇİÜÖĞ", u"sciougSCIUOG")
     }
     return word.translate(turkish_caracters)
+
 
 def random_string(length: int) -> str:
     """ Ramdom string creation function
@@ -60,6 +68,21 @@ def random_string(length: int) -> str:
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(length))
 
+
 def diff_month(d1: datetime.datetime, d2: datetime.datetime) -> int:
     """ Calculates the difference in months between two dates """
     return abs((d1.year - d2.year) * 12 + d1.month - d2.month)
+
+
+def check_string_case_insensitive(s1: str, s2: str) -> bool:
+    """String equality check case insensitive
+
+    Args:
+        s1 (str): First string variable
+        s2 (str): Second string variable
+
+    Returns:
+        bool: Equality status
+    """
+
+    return s1.lower() == s2.lower()
