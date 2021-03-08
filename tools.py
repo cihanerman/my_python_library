@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 # librays
+import datetime
 import random
 import string
-import datetime
+
 
 # class and functions
 
@@ -86,3 +87,19 @@ def check_string_case_insensitive(s1: str, s2: str) -> bool:
     """
 
     return s1.lower() == s2.lower()
+
+
+def multi_replace(string_: str, old_characters: str, new_characters=None) -> str:
+    """Python multi replace function
+
+    :param string_: The desired string to change
+    :param old_characters: Characters requested to be changed
+    :param new_characters:
+    :return: new string
+    :example:
+        print(multi_replace('(+0546) 667 87 87', '()+ '))
+        #=> 05466678787
+    """
+    trans_dict = dict(zip(old_characters, new_characters)) if new_characters else dict(
+        zip(list(old_characters), [None] * len(old_characters)))
+    return string_.translate(string_.maketrans(trans_dict))
