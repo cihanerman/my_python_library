@@ -103,3 +103,11 @@ def multi_replace(string_: str, old_characters: str, new_characters=None) -> str
     trans_dict = dict(zip(old_characters, new_characters)) if new_characters else dict(
         zip(list(old_characters), [None] * len(old_characters)))
     return string_.translate(string_.maketrans(trans_dict))
+
+def iscastlable(typ, value) -> bool:
+    """Function that queries whether a cast can be done or not"""
+    try:
+        typ(value)
+        return True
+    except Exception as e:
+        return False
