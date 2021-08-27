@@ -111,3 +111,8 @@ def iscastlable(typ, value) -> bool:
         return True
     except Exception as e:
         return False
+    
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
