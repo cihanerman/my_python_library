@@ -66,8 +66,8 @@ def random_string(length: int) -> str:
         Parameters:
             length: Number of characters
     """
-    letters = string.ascii_lowercase
-    return ''.join(random.choice(letters) for i in range(length))
+    letters = string.ascii_lowercase + string.digits
+    return ''.join(random.choices(letters, k=length))
 
 
 def diff_month(d1: datetime.datetime, d2: datetime.datetime) -> int:
